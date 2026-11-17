@@ -1,0 +1,43 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Heavenly Learning Portal{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{% url 'home' %}">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span>Heavenly Learning Portal</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav">
+          <li><a href="{% url 'home' %}"{% if request.resolver_match.url_name == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+          <li><a href="{% url 'about' %}"{% if request.resolver_match.url_name == 'about' %} aria-current="page"{% endif %}>About</a></li>
+          <li><a href="{% url 'programs' %}"{% if request.resolver_match.url_name == 'programs' %} aria-current="page"{% endif %}>Programs</a></li>
+          <li><a href="{% url 'contact' %}"{% if request.resolver_match.url_name == 'contact' %} aria-current="page"{% endif %}>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Heavenly Learning Portal. All rights reserved.</p>
+      <p>PC15 Python Programming 2 &middot; Week 14 &middot; Django Templates</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Programs | Heavenly Learning Portal{% endblock %}
+
+{% block content %}
+  <section class="page-head">
+    <h1>Programs</h1>
+    <p class="lead">Choose a track that matches your level. Each program includes weekly lab activities.</p>
+  </section>
+
+  <section class="card table-card">
+    <table>
+      <caption class="sr-only">List of available programs with level and duration</caption>
+      <thead>
+        <tr>
+          <th scope="col">Program</th>
+          <th scope="col">Level</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in programs %}
+          <tr>
+            <th scope="row">{{ p.title }}</th>
+            <td><span class="tag">{{ p.level }}</span></td>
+            <td>{{ p.weeks }} weeks</td>
+            <td>{{ p.summary }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endblock %}

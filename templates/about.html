@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}About | Heavenly Learning Portal{% endblock %}
+
+{% block content %}
+  <section class="page-head">
+    <h1>About the Portal</h1>
+    <p class="lead">Heavenly Learning Portal is a practice project that shows how one shared layout can power every page of a site.</p>
+  </section>
+
+  <section class="card prose">
+    <h2>Our Mission</h2>
+    <p>To make learning web development clear and approachable, with consistent design, readable pages and working examples.</p>
+
+    <h2>How this site is built</h2>
+    <ul>
+      <li>One <code>base.html</code> holds the header, navigation and footer.</li>
+      <li>Each page extends it and fills only the <code>content</code> block.</li>
+      <li>A single stylesheet in the <code>static</code> folder styles every page.</li>
+    </ul>
+  </section>
+{% endblock %}

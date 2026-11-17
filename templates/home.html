@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | Heavenly Learning Portal{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <span class="badge">Welcome</span>
+    <h1>Learn to build for the web, one page at a time.</h1>
+    <p class="lead">A focused learning portal for aspiring Python and Django developers, with hands-on labs and clear progress at every step.</p>
+    <div class="actions">
+      <a class="btn" href="{% url 'programs' %}">Browse Programs</a>
+      <a class="btn btn-ghost" href="{% url 'about' %}">About the Portal</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="featured-heading">
+    <h2 id="featured-heading">Featured Programs</h2>
+    <div class="grid">
+      {% for p in programs %}
+        <article class="card">
+          <span class="tag">{{ p.level }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.summary }}</p>
+          <p class="meta">{{ p.weeks }} weeks</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
